@@ -19,7 +19,9 @@
      <li>
         <p><%= content.name %></p>
         <p><%= content.body %></p>
-
+        <% unless content.img.empty? %>
+        <p><img src="<%= content.img %>"></p>
+        <% end %>
      </li>
      <% end %>
  </ul>

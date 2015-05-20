@@ -4,6 +4,8 @@ require 'sinatra/reloader' if development?
 require 'open-uri'
 require "sinatra/json"
 
+Dotenv.load
+
 require './image_uploader.rb'
 require './models.rb'
 
@@ -16,7 +18,10 @@ post '/new' do
   logger.info "名前：#{params[:user_name]}、内容：#{params[:body]}"
   Contribution.create(:name => params[:user_name], :body => params[:body], :img => "")
   
-  image_upload(params[:file])
+  unless params[:img].blank?
+    image_upload(params[:file])
+  end
+  
   
   redirect '/'
 end
