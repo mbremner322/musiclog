@@ -3,3 +3,7 @@ ActiveRecord::Base.establish_connection(
 
 class Contribution < ActiveRecord::Base
 end
+
+class User < ActiveRecord::Base
+    has_secure_password
+end

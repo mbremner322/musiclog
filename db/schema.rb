@@ -11,14 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520091253) do
+ActiveRecord::Schema.define(version: 20150702031528) do
 
   create_table "contributions", force: :cascade do |t|
-    t.string   "name"
+    t.string   "songTitle"
+    t.string   "artistName"
+    t.string   "link"
     t.string   "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "img"
+    t.integer  "author"
+    t.integer  "like"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "mail"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "name"
   end
 
 end

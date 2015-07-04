@@ -1,0 +1,39 @@
+<html>
+<body>
+    <div>
+        <h1> Marie's editing page </h1>
+        <div>
+        <h2> Users</h2>
+        <ul>
+        <%@user.each do |user|%>
+            <li>
+                <p><%=user.name%></p>
+                <form action='/deleteuser/<%=user.id%>' method='post'>
+                    <button>delete</button>
+                </form>
+
+                </p>
+            </li>
+        <%end%>
+        </ul>
+        </div>
+        <div>
+        <h2> Posts</h2>
+        <ul>
+        <%@post.each do |post|%>
+            <li>
+                <p><%=post.songTitle%></p>
+                <form action='/deletepost/<%=post.id%>' method='post'>
+                    <button>delete</button>
+                </form>
+                <form action='/edit/<%=post.id%>' method='post'>
+                    <button>edit</button>
+                </form>
+                </p>
+            </li>
+        <%end%>
+        </ul>
+        </div>
+    </div>
+</body>
+</html>
